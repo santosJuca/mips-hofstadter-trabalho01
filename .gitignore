@@ -1,0 +1,12 @@
+# Arquivos locais dos editores
+.vscode/
+.idea/
+.DS_Store
+
+# Arquivos temporarios
+*.log
+*.tmp
+*.bak
+
+# Pacote final gerado
+*.zip
