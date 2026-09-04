@@ -32,7 +32,7 @@ O programa deverá:
 
 - [x] Repositório de desenvolvimento criado.
 - [x] Estrutura inicial preparada.
-- [ ] Completar o algoritmo em alto nível.
+- [x] Completar o algoritmo em alto nível.
 - [ ] Implementar as funções em Assembly.
 - [ ] Testar os resultados no MARS.
 - [ ] Fazer as capturas de tela.
