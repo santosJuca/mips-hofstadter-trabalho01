@@ -1,46 +1,51 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-/*𝐹(𝑛) = {1, 𝑖 = 0
-            𝑛 − 𝑀(𝐹(𝑛 − 1)), ∀ 𝑖 > 0
+int Female(int n);
+int Male(int n);
 
-𝑀(𝑛) = {0, 𝑖 = 0
-        𝑛 − 𝐹(𝑀(𝑛 − 1)), ∀ 𝑖 > 0
-*/
+int main(void)
+{
+    int n;
 
-int F(int n);
-int M(int n);
+    printf("Sequencias Female e Male de Hofstadter - 28/09/2026\n");
+    printf("Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan\n");
 
-int main () {
+    for (;;) {
+        printf("\nDigite n para calcular F(n) e M(n) ou numero negativo para abortar a execucao: ");
+        int leitura = scanf("%d", &n);
+        if (leitura == EOF)
+            return 0;
+        if (leitura != 1) {
+            fprintf(stderr, "Entrada invalida: informe um inteiro.\n");
+            return 1;
+        }
+        if (n < 0)
+            return 0;
 
-    int val = 0;
-    printf("Insira um valor: ");
-    scanf("%d", &val);
-
-    printf("Resultado F(): %d\n", F(val));
-    printf("Resultado M(): %d\n", M(val));
-
-    return 0;
+        printf("n\t");
+        for (int i = 0; i <= n; i++)
+            printf("%d\t", i);
+        printf("\nF(n)\t");
+        for (int i = 0; i <= n; i++)
+            printf("%d\t", Female(i));
+        printf("\nM(n)\t");
+        for (int i = 0; i <= n; i++)
+            printf("%d\t", Male(i));
+        printf("\n");
+    }
 }
 
-int F(int n)
+/* As funcoes recebem apenas valores naturais. */
+int Female(int n)
 {
     if (n == 0)
         return 1;
-    if (n > 0)
-        return n - M(F(n-1));
-    else
-        fprintf(stderr, "Erro: número negativo não permitido (%d)\n", n);
-        exit(1);
+    return n - Male(Female(n - 1));
 }
 
-int M(int n)
+int Male(int n)
 {
     if (n == 0)
         return 0;
-    if (n > 0)
-        return n - F(M(n-1));
-    else
-        fprintf(stderr, "Erro: número negativo não permitido (%d)\n", n);
-        exit(1);
+    return n - Female(Male(n - 1));
 }

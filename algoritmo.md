@@ -1,47 +1,50 @@
 # Algoritmo em alto nível
 
-## Programa principal
-
-```text
-início
-    mostrar o título do programa
-    mostrar os nomes dos desenvolvedores
-
-    repetir
-        pedir um número inteiro n
-        ler n
-
-        se n for negativo
-            encerrar o programa
-        senão
-            mostrar os valores de 0 até n
-            calcular e mostrar Female para cada valor
-            calcular e mostrar Male para cada valor
-        fim se
-    até o programa ser encerrado
-fim
-```
-
-## Função Female
+O programa recebe inteiros e apresenta as sequências de 0 até n, inclusive.
+Um valor negativo encerra o laço. A implementação em C está em `trabalho1.c`.
 
 ```text
 função Female(n)
-    se n for igual a 0
+    se n = 0
         retornar 1
-    senão
-        retornar n - Male(Female(n - 1))
-    fim se
+    retornar n - Male(Female(n - 1))
 fim função
-```
 
-## Função Male
-
-```text
 função Male(n)
-    se n for igual a 0
+    se n = 0
         retornar 0
-    senão
-        retornar n - Female(Male(n - 1))
-    fim se
+    retornar n - Female(Male(n - 1))
+fim função
+
+função main()
+    mostrar "Sequencias Female e Male de Hofstadter - 28/09/2026"
+    mostrar "Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan"
+
+    repetir
+        mostrar "Digite n para calcular F(n) e M(n) ou numero negativo para abortar a execucao: "
+        ler inteiro n
+        se n < 0
+            encerrar
+
+        mostrar "n", sem mudar de linha
+        para i de 0 até n, inclusive
+            mostrar i, separado por tabulação
+        mudar de linha
+
+        mostrar "F(n)", sem mudar de linha
+        para i de 0 até n, inclusive
+            mostrar Female(i), separado por tabulação
+        mudar de linha
+
+        mostrar "M(n)", sem mudar de linha
+        para i de 0 até n, inclusive
+            mostrar Male(i), separado por tabulação
+        mudar de linha
+    fim repetir
 fim função
 ```
+
+As chamadas são mutuamente recursivas. Female calcula `Female(n - 1)` e
+passa o resultado para Male; Male calcula `Male(n - 1)` e passa o resultado
+para Female. O parâmetro original n precisa continuar disponível para a
+subtração após essas chamadas.

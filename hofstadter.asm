@@ -1,13 +1,13 @@
 # Trabalho 01 - Sequencias Female e Male de Hofstadter
 # Disciplina: Organizacao e Arquitetura de Processadores
-# Desenvolvedores: preencher os nomes do grupo
+# Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan
 #
 # Implementacao equivalente ao algoritmo em C usando recursividade,
 # macros e pilha para preservar o endereco de retorno e o parametro n.
 
 .data
-titulo:   .asciiz "Sequencias Female e Male de Hofstadter - 09/09/2026\n"
-autores:  .asciiz "Desenvolvedores: preencher os nomes do grupo\n"
+titulo:   .asciiz "Sequencias Female e Male de Hofstadter - 28/09/2026\n"
+autores:  .asciiz "Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan\n"
 prompt:   .asciiz "\nDigite n para calcular F(n) e M(n) ou numero negativo para abortar a execucao: "
 linha_n:  .asciiz "n\t"
 linha_f:  .asciiz "F(n)\t"
@@ -102,6 +102,8 @@ fim:
     li $v0, 10             # codigo do syscall para encerrar
     syscall
 
+# Entrada: $a0 = n >= 0; saida: $v0 = resultado.
+# $a0 e $t0 sao temporarios; $s0 e $s1 permanecem intactos.
 # F(n) = 1, se n = 0
 # F(n) = n - M(F(n - 1)), se n > 0
 female:
