@@ -1,0 +1,7 @@
+C: entrada=[0, 1, 4, 19, -1]; obtido=saidas esperadas, encerramento normal; esperado=tabela do PDF e encerramento no negativo. OK
+C: entrada=[-5]; obtido=saidas esperadas, encerramento normal; esperado=tabela do PDF e encerramento no negativo. OK
+C: entrada=[4, 0, 4, -2]; obtido=saidas esperadas, encerramento normal; esperado=tabela do PDF e encerramento no negativo. OK
+MARS: entrada=[0, 1, 4, 19, -1]; obtido=saidas esperadas, encerramento normal; esperado=tabela do PDF e encerramento no negativo. OK
+MARS: entrada=[-5]; obtido=saidas esperadas, encerramento normal; esperado=tabela do PDF e encerramento no negativo. OK
+MARS: entrada=[4, 0, 4, -2]; obtido=saidas esperadas, encerramento normal; esperado=tabela do PDF e encerramento no negativo. OK
+C compilado sem avisos. MARS 4.5: delayed branching desativado; pilha restaurada ao final dos tres cenarios.

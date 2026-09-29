@@ -1,39 +1,71 @@
 # Trabalho 01 - Hofstadter em Assembly MIPS
 
-Repositório usado para desenvolver o Trabalho 01 da disciplina de Organização e Arquitetura de Processadores.
+Implementação das sequências Female e Male de Hofstadter para a disciplina de
+Organização e Arquitetura de Processadores. O programa lê um inteiro n,
+apresenta as três linhas `n`, `F(n)` e `M(n)` de 0 até n e pede uma nova entrada.
+Um número negativo encerra a execução.
 
-## Objetivo
+Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan.
 
-Implementar no MARS as sequências Female e Male de Hofstadter usando Assembly MIPS, funções recursivas, macros e pilha.
+## Executar no MARS
 
-O programa deverá:
+1. Abra `hofstadter.asm` no MARS 4.5.
+2. Em **Settings**, mantenha habilitadas as pseudoinstruções e macros
+   (**Permit extended (pseudo) instructions and formats**) e deixe
+   **Delayed branching** desabilitado.
+3. Monte com **Run > Assemble** (F3) e execute com **Run > Go** (F5).
+4. Informe, por exemplo, `4`. Depois informe outro inteiro ou `-1` para sair.
 
-- ler um valor inteiro `n`;
-- calcular `F(n)` e `M(n)`;
-- mostrar os valores das duas sequências de `0` até `n`;
-- repetir a execução até que seja digitado um número negativo.
+```text
+n       0   1   2   3   4
+F(n)    1   1   2   2   3
+M(n)    0   0   1   2   2
+```
+
+O código usa `main`, `female`, `male` e três macros de entrada/saída.
+Cada chamada recursiva não básica reserva 8 bytes para n e `$ra`.
+Os casos-base retornam diretamente. A avaliação é recursiva, sem memoização;
+valores grandes de n podem demorar bastante. A entrada prevista é um inteiro.
 
 ## Arquivos
 
-- `hofstadter.asm`: código Assembly do programa.
-- `algoritmo.md`: descrição do algoritmo em alto nível.
-- `capturas/`: lista das capturas que serão feitas no MARS.
+- [hofstadter.asm](hofstadter.asm): programa comentado para o MARS.
+- [trabalho1.c](trabalho1.c): versão em C com a mesma interface para entradas inteiras.
+- [algoritmo.md](algoritmo.md): descrição em português estruturado.
+- [docs/relatorio.md](docs/relatorio.md): explicação da implementação e dos testes.
+- [docs/relatorio.pdf](docs/relatorio.pdf): documentação com código completo e capturas.
+- [capturas/](capturas/README.md): código montado, execução, registradores e pilha.
+- [testes/verificar.py](testes/verificar.py): comparação com a tabela do enunciado.
+- [testes/resultados.txt](testes/resultados.txt): registro dos testes realizados.
 
-## Requisitos principais
+## Conferir os resultados
 
-- Função principal `main`.
-- Função recursiva `Female`.
-- Função recursiva `Male`.
-- Pelo menos três macros.
-- Salvamento dos registradores e do endereço de retorno na pilha.
-- Execução e testes no MARS.
+Com Python 3, Java e um compilador C instalados:
 
-## Andamento
+```sh
+python3 testes/verificar.py /caminho/Mars4_5.jar
+```
 
-- [x] Repositório de desenvolvimento criado.
-- [x] Estrutura inicial preparada.
-- [x] Completar o algoritmo em alto nível.
-- [ ] Implementar as funções em Assembly.
-- [ ] Testar os resultados no MARS.
-- [ ] Fazer as capturas de tela.
-- [ ] Montar a documentação final em PDF.
+O teste compila o C com avisos tratados como erros, executa o C e o MARS e
+compara as saídas com os valores do PDF para n até 19. Também confere o
+cabeçalho, a repetição das entradas, o encerramento por negativo e o valor
+final de `$sp` no MARS. O JAR do simulador não é distribuído neste repositório.
+
+Para executar apenas o C:
+
+```sh
+cc -std=c11 -Wall -Wextra -Werror trabalho1.c -o /tmp/hofstadter-c
+/tmp/hofstadter-c
+```
+
+## Entrega
+
+O pacote `entrega/hofstadter-trabalho01.zip` reúne o PDF, o Assembly separado,
+o C, o algoritmo, as capturas e os testes. O PDF contém a mesma versão do
+Assembly incluída no pacote. Arquivos `.zip` são ignorados pelo Git;
+para gerar o pacote novamente, execute na raiz do projeto:
+
+```sh
+mkdir -p entrega
+zip -r entrega/hofstadter-trabalho01.zip README.md hofstadter.asm trabalho1.c algoritmo.md docs capturas testes
+```
