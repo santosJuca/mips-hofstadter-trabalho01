@@ -17,8 +17,7 @@ Hofstadter_v2.pdf”, seções 1.1, 1.2 e 2.
 Após o cabeçalho com data e desenvolvedores, main solicita um inteiro n.
 Se n for negativo, encerra. Caso contrário, imprime três linhas: os índices
 de 0 até n, seus valores Female e seus valores Male. Depois solicita outra
-entrada. O algoritmo em português estruturado está em `algoritmo.md`; a
-versão em C está em `trabalho1.c`.
+entrada. O algoritmo em português estruturado está incluído neste PDF.
 
 ## Organização do Assembly
 
@@ -70,13 +69,11 @@ A próxima chamada será M(0). Os cinco quadros ocupam 40 bytes:
 
 Ambiente: MARS 4.5, pseudoinstruções e macros habilitadas, delayed branching
 desabilitado e configuração de memória padrão. O código não foi organizado
-para executar com delay slots habilitados. Para entrada de texto não inteiro,
-o tratamento é o do simulador; os testes seguem o domínio de inteiros do
-trabalho. O C verifica falha de leitura e fim da entrada.
+para executar com delay slots habilitados. A entrada prevista é um inteiro,
+conforme a especificação do trabalho.
 
-Os testes de `testes/verificar.py` compilam o C com `-std=c11 -Wall -Wextra
--Werror` e executam os dois programas. Os valores esperados foram transcritos
-da tabela do enunciado; não são calculados pelas funções sob teste.
+As execuções foram conferidas com os valores da tabela do enunciado. Os
+valores esperados foram transcritos da especificação.
 
 | Entradas, em ordem | Resultado obtido e esperado |
 | --- | --- |
@@ -84,9 +81,8 @@ da tabela do enunciado; não são calculados pelas funções sob teste.
 | -5 | Cabeçalho e pedido de entrada, sem tabela; encerramento imediato. |
 | 4, 0, 4, -2 | Tabelas corretas, inclusive ao repetir 4 e voltar a zero; encerramento em -2. |
 
-Todos os cenários passaram no C e no MARS. O C compilou sem avisos. No MARS,
-`$sp` terminou em `0x7fffeffc` nos três cenários, igual ao valor inicial.
-A saída detalhada dos testes está em `testes/resultados.txt`.
+No MARS, `$sp` terminou em `0x7fffeffc` nos três cenários, igual ao valor
+inicial.
 
 Para n = 19, os resultados conferidos são:
 
@@ -106,15 +102,14 @@ podem exigir muito mais tempo; a validação de resultados cobre n de 0 a 19.
 
 ## Material de entrega
 
-O PDF reúne esta explicação, o algoritmo, o código C, o Assembly completo
-comentado e as sete capturas do MARS. As quatro vistas `codigo-01.png` a
+O PDF reúne esta explicação, o algoritmo, o Assembly completo comentado e as
+sete capturas do MARS. As quatro vistas `codigo-01.png` a
 `codigo-04.png` cobrem o segmento de texto inteiro com sobreposição, de
 0x00400000 a 0x004001c8 (115 instruções montadas). As demais capturas mostram
 a execução e os registradores finais, a pilha em Female e a pilha em Male.
 
-O arquivo compactado contém o PDF e `hofstadter.asm` separadamente, além das
-fontes de documentação, do C, das imagens e dos testes. O simulador MARS e
-o enunciado da disciplina não integram o pacote.
+O arquivo compactado contém somente o PDF e `hofstadter.asm`, como solicitado
+no enunciado. As imagens usadas nas capturas ficam incorporadas no PDF.
 
 ## Conferência dos requisitos
 
@@ -128,7 +123,7 @@ o enunciado da disciplina não integram o pacote.
 | Leitura e laço até negativo | Leitura por syscall 5, teste de sinal e retorno à leitura. |
 | Tabela de 0 até n | Três linhas horizontais, verificadas até n = 19. |
 | Código comentado | Assembly completo reproduzido neste documento. |
-| Algoritmo de alto nível | Português estruturado e implementação em C. |
+| Algoritmo de alto nível | Português estruturado incluído no PDF. |
 | Área de código montada | Quatro capturas que cobrem todas as instruções. |
 | Registradores finais e execução | Captura da sessão com 0, 4, 19 e -1. |
 | Pilha durante Female e Male | Duas capturas com quadros ativos e explicação dos endereços. |
