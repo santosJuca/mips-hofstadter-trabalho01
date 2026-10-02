@@ -2,7 +2,7 @@
 
 Trabalho 01 - Organização e Arquitetura de Processadores
 
-Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan.
+Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo Carvalho Kirsch e Allan Rosa.
 Data: 28/09/2026.
 
 ## Objetivo e definição

@@ -5,7 +5,7 @@ Organização e Arquitetura de Processadores. O programa lê um inteiro n,
 apresenta as três linhas `n`, `F(n)` e `M(n)` de 0 até n e pede uma nova entrada.
 Um número negativo encerra a execução.
 
-Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan.
+Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo Carvalho Kirsch e Allan Rosa.
 
 ## Executar no MARS
 

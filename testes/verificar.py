@@ -33,7 +33,7 @@ def conferir(nome, comando):
         if obtido != esperado:
             raise AssertionError(f'{nome}: entrada={entradas}; obtido={obtido}; esperado={esperado}')
         assert saida.count('Sequencias Female e Male de Hofstadter - 28/09/2026') == 1
-        assert 'Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan' in saida
+        assert 'Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo Carvalho Kirsch e Allan Rosa' in saida
         assert saida.count('Digite n para calcular') == len(entradas)
         if nome == 'MARS':
             assert re.search(r'\$sp\s+0x7fffeffc', saida), saida

@@ -8,7 +8,7 @@ int main(void)
     int n;
 
     printf("Sequencias Female e Male de Hofstadter - 28/09/2026\n");
-    printf("Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan\n");
+    printf("Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo Carvalho Kirsch e Allan Rosa\n");
 
     for (;;) {
         printf("\nDigite n para calcular F(n) e M(n) ou numero negativo para abortar a execucao: ");

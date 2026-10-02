@@ -1,13 +1,13 @@
 # Trabalho 01 - Sequencias Female e Male de Hofstadter
 # Disciplina: Organizacao e Arquitetura de Processadores
-# Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan
+# Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo Carvalho Kirsch e Allan Rosa
 #
 # Implementacao equivalente ao algoritmo em C usando recursividade,
 # macros e pilha para preservar o endereco de retorno e o parametro n.
 
 .data
 titulo:   .asciiz "Sequencias Female e Male de Hofstadter - 28/09/2026\n"
-autores:  .asciiz "Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan\n"
+autores:  .asciiz "Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo Carvalho Kirsch e Allan Rosa\n"
 prompt:   .asciiz "\nDigite n para calcular F(n) e M(n) ou numero negativo para abortar a execucao: "
 linha_n:  .asciiz "n\t"
 linha_f:  .asciiz "F(n)\t"

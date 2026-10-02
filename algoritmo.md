@@ -18,7 +18,7 @@ fim função
 
 função main()
     mostrar "Sequencias Female e Male de Hofstadter - 28/09/2026"
-    mostrar "Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo e Allan"
+    mostrar "Desenvolvedores: Juarez Fernando Goncalves dos Santos, Theo Carvalho Kirsch e Allan Rosa"
 
     repetir
         mostrar "Digite n para calcular F(n) e M(n) ou numero negativo para abortar a execucao: "
